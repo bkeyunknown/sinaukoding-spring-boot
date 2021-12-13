@@ -23,7 +23,7 @@ public abstract class BaseEntity<T> implements Serializable {
     private static final long serialVersionUID = -3894291725519924670L;
 
     @Id @GeneratedValue(strategy = IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "created_time")
     @Temporal(TIMESTAMP)
