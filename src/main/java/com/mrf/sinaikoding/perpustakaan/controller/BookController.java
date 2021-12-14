@@ -7,11 +7,13 @@ import com.mrf.sinaikoding.perpustakaan.common.StatusCode;
 import com.mrf.sinaikoding.perpustakaan.entity.Book;
 import com.mrf.sinaikoding.perpustakaan.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
+@PreAuthorize("permitAll()")
 @RequestMapping("/books")
 public class BookController extends BaseController {
 

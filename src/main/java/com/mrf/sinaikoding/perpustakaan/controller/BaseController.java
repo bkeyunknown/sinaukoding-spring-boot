@@ -2,6 +2,6 @@ package com.mrf.sinaikoding.perpustakaan.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 
-//@PreAuthorize("isFullyAuthenticated()")
+@PreAuthorize("isFullyAuthenticated()")
 public abstract class BaseController {
 }
