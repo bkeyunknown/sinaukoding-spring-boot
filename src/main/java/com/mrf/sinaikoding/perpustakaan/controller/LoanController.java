@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("loans")
+@RequestMapping("/loans")
 public class LoanController extends BaseController {
 
     @Autowired
