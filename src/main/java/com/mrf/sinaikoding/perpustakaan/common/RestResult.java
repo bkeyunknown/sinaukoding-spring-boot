@@ -32,4 +32,8 @@ public class RestResult implements Serializable {
         this.status = status;
     }
 
+    public RestResult(Object data, String status) {
+        this.data = data;
+        this.status = status;
+    }
 }
