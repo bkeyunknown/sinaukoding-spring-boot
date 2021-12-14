@@ -29,7 +29,7 @@ public class BookController extends BaseController {
 
         long rows = service.count(book);
 
-        return new RestResult(rows > 0 ? service.find(book, offset, limit) : new ArrayList<>());
+        return new RestResult(rows > 0 ? service.find(book, offset, limit) : new ArrayList<>(), rows);
     }
 
     @PostMapping
