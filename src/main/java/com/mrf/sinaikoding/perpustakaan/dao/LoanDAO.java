@@ -14,6 +14,10 @@ public class LoanDAO extends BaseDAO<Loan>{
     public List<Predicate> predicates(Loan param, CriteriaBuilder builder, Root<Loan> root, boolean isCount) {
         List<Predicate> predicates = super.predicates(param, builder, root, isCount);
 
+        if (!isCount) {
+            root.fetch("book", JoinType.INNER);
+        }
+
         return predicates;
     }
 
