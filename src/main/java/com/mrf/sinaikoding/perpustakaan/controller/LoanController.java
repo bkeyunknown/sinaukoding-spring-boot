@@ -6,6 +6,7 @@ import com.mrf.sinaikoding.perpustakaan.common.RestResult;
 import com.mrf.sinaikoding.perpustakaan.common.StatusCode;
 import com.mrf.sinaikoding.perpustakaan.entity.Loan;
 import com.mrf.sinaikoding.perpustakaan.service.LoanService;
+import com.mrf.sinaikoding.perpustakaan.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,27 @@ public class LoanController extends BaseController {
 
         return new RestResult(rows > 0 ? service.find(loan, offset, limit) : new ArrayList<>(), rows);
     }
+
+    @GetMapping(value = "by-date")
+    public RestResult findByDate(@RequestParam(value = "param", required = false) String param,
+                                 @RequestParam(value = "start-date") String startDate,
+                                 @RequestParam(value = "end-date") String endDate) throws JsonProcessingException {
+
+        RestResult result = new RestResult(StatusCode.OPERATION_FAILED);
+
+        Loan loan = param != null ? new ObjectMapper().readValue(param, Loan.class) : new Loan();
+
+        result.setData(service.findByDate(loan,
+                DateUtils.fromString(startDate),
+                DateUtils.fromString(endDate)));
+        result.setRows((long) service.findByDate(loan,
+                DateUtils.fromString(startDate),
+                DateUtils.fromString(endDate)).size());
+
+        return result;
+
+    }
+
 
     @PostMapping
     public RestResult save(@RequestBody Loan entity) {
