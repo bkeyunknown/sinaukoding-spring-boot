@@ -45,7 +45,7 @@ public class Loan extends BaseEntity<Loan>{
 
     @Column(name = "status")
     @Enumerated(STRING)
-    private StatusLoan status;
+    private StatusLoan status = StatusLoan.BORROWED;
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "book_id")
