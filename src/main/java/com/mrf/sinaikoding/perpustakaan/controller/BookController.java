@@ -27,7 +27,7 @@ public class BookController extends BaseController {
 
         Book book = param != null ? new ObjectMapper().readValue(param, Book.class) : null;
 
-        long rows = service.count(book);
+        Long rows = service.count(book);
 
         return new RestResult(rows > 0 ? service.find(book, offset, limit) : new ArrayList<>(), rows);
     }
