@@ -17,6 +17,10 @@ public class User extends BaseEntity<User>{
 
     private static final long serialVersionUID = 2641371546349597102L;
 
+    public User(String username) {
+        this.username = username;
+    }
+
     public enum Role {
         ROLE_USER,
         ROLE_ADMIN
@@ -30,7 +34,7 @@ public class User extends BaseEntity<User>{
     private String profileName;
 
     @Column(name = "username", columnDefinition = "VARCHAR(50)", nullable = false)
-    private String userName;
+    private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
