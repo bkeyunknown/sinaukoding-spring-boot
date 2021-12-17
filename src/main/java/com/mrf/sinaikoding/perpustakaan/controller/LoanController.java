@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@PreAuthorize("permitAll()")
+//@PreAuthorize("permitAll()")
 @RequestMapping("/loans")
 public class LoanController extends BaseController {
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@PreAuthorize("permitAll()")
+//@PreAuthorize("permitAll()")
 @RequestMapping("/books")
 public class BookController extends BaseController {
 
